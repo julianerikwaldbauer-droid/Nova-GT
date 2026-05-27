@@ -57,6 +57,7 @@ document.querySelectorAll("[data-scroll]").forEach((link) => {
 });
 
 const counterItems = document.querySelectorAll("[data-counter]");
+let heroCountersReady = false;
 const easeOutQuint = (value) => 1 - Math.pow(1 - value, 5);
 
 const formatCounterValue = (value, decimals) => {
@@ -65,19 +66,20 @@ const formatCounterValue = (value, decimals) => {
 };
 
 const animateCounter = (element) => {
-  if (element.dataset.animated === "true") return;
+  if (element.dataset.animated === "true") return true;
+  if (element.closest(".hero-stats") && !heroCountersReady) return false;
 
   const target = Number(element.dataset.counter || 0);
   const decimals = Number(element.dataset.decimals || 0);
   const duration = Number(element.dataset.duration || 1700);
 
-  if (!Number.isFinite(target)) return;
+  if (!Number.isFinite(target)) return false;
 
   element.dataset.animated = "true";
 
   if (prefersReducedMotion) {
     element.textContent = formatCounterValue(target, decimals);
-    return;
+    return true;
   }
 
   let startTime;
@@ -99,6 +101,7 @@ const animateCounter = (element) => {
   };
 
   requestAnimationFrame(frame);
+  return true;
 };
 
 const isInViewport = (element, offset = 0.92) => {
@@ -112,10 +115,26 @@ const triggerVisibleCounters = () => {
   });
 };
 
+const setLoadedState = () => {
+  requestAnimationFrame(() => {
+    document.body.classList.add("is-loaded");
+  });
+
+  window.setTimeout(() => {
+    heroCountersReady = true;
+    document.querySelectorAll(".hero-stats [data-counter]").forEach(animateCounter);
+    triggerVisibleCounters();
+  }, prefersReducedMotion ? 0 : 1700);
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", setLoadedState, { once: true });
+} else {
+  setLoadedState();
+}
+
 const revealItems = document.querySelectorAll([
   ".section",
-  ".hero-stats",
-  ".hero-readout",
   ".design-notes article",
   ".large-image",
   ".detail-image",
@@ -148,8 +167,7 @@ if ("IntersectionObserver" in window) {
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
+      if (animateCounter(entry.target)) counterObserver.unobserve(entry.target);
     });
   }, {
     threshold: 0.35,
