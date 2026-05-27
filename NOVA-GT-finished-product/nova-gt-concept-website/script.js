@@ -34,7 +34,8 @@ if (cursor && window.matchMedia("(pointer: fine)").matches && !prefersReducedMot
     ".stat-grid article",
     ".design-notes article",
     ".micro-specs article",
-    ".mode-grid article"
+    ".mode-grid article",
+    ".motion-breaker"
   ].join(",");
 
   document.querySelectorAll(hoverTargets).forEach((element) => {
@@ -141,8 +142,10 @@ const revealItems = document.querySelectorAll([
   ".cockpit-frame",
   ".stat-grid article",
   ".micro-specs article",
+  ".tech-callout",
   ".power-map",
   ".mode-grid article",
+  ".motion-breaker",
   ".gallery-feature",
   ".gallery-stack figure",
   ".request-form"

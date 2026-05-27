@@ -39,6 +39,7 @@
       <div class="hero-led" aria-hidden="true"></div>
       <div class="hero-floor-light" aria-hidden="true"></div>
       <div class="hero-scan" aria-hidden="true"></div>
+
       <div class="hero-inner">
         <div class="hero-meta mono">
           <span>00 / Electric GT</span>
@@ -47,16 +48,16 @@
 
         <div class="hero-body">
           <div class="hero-copy">
-            <p class="eyebrow mono">NOVA GT / 2026</p>
+            <p class="eyebrow mono accent-label">NOVA GT / 2026</p>
             <h1 id="hero-title">Electric performance.<br>Reduced to silence.</h1>
             <p class="intro">A cinematic concept vehicle interface built around speed, control and visual restraint.</p>
-            <a class="cta" href="#design" data-scroll>Explore model ↗</a>
+            <a class="cta" href="#design" data-scroll>Explore model</a>
           </div>
         </div>
 
         <div class="hero-stats" aria-label="NOVA GT performance statistics">
           <article>
-            <span class="mono">0–60 MPH</span>
+            <span class="mono">0-60 MPH</span>
             <strong data-counter="2.8" data-decimals="1">0</strong>
             <small>seconds</small>
           </article>
@@ -109,40 +110,71 @@
 
     <section class="section performance" id="performance">
       <div class="section-label mono">02 / Performance</div>
-      <h2>Power without noise.</h2>
+      <div class="section-heading">
+        <h2>Power without noise.</h2>
+        <p class="section-kicker mono">Dual motor online</p>
+      </div>
       <div class="stat-grid">
         <article>
           <span class="mono">Range</span>
-          <strong data-counter="385">0</strong>
-          <small>miles estimated electric range</small>
+          <div class="stat-value">
+            <strong data-counter="385">0</strong>
+            <em>miles</em>
+          </div>
+          <small>estimated electric range</small>
         </article>
         <article>
           <span class="mono">Acceleration</span>
-          <strong data-counter="2.8" data-decimals="1">0</strong>
-          <small>seconds / 0-60 mph</small>
+          <div class="stat-value">
+            <strong data-counter="2.8" data-decimals="1">0</strong>
+            <em>seconds</em>
+          </div>
+          <small>0-60 mph launch calibration</small>
         </article>
         <article>
           <span class="mono">Top speed</span>
-          <strong data-counter="205">0</strong>
-          <small>mph electronically limited</small>
+          <div class="stat-value">
+            <strong data-counter="205">0</strong>
+            <em>mph</em>
+          </div>
+          <small>electronically limited</small>
         </article>
         <article>
           <span class="mono">Output</span>
-          <strong data-counter="644">0</strong>
-          <small>hp dual motor system</small>
+          <div class="stat-value">
+            <strong data-counter="644">0</strong>
+            <em>hp</em>
+          </div>
+          <small>dual motor system</small>
         </article>
       </div>
     </section>
 
-    <section class="section engineering" id="engineering">
+    <section class="section engineering section-tight" id="engineering">
       <div class="section-label mono">03 / Wheel / Tire / Brake</div>
       <div class="engineering-layout">
-        <figure class="detail-image image-card">
+        <figure class="detail-image image-card engineering-image">
           <img src="assets/nova-detail.png" alt="NOVA GT wheel, tire and front brake detail study" />
           <figcaption class="mono">Detail / Wheel system</figcaption>
+          <div class="tech-callout callout-wheel">
+            <span class="mono">Wheel</span>
+            <strong>22 in forged aero</strong>
+          </div>
+          <div class="tech-callout callout-tire">
+            <span class="mono">Tire</span>
+            <strong>315 rear performance tires</strong>
+          </div>
+          <div class="tech-callout callout-brake">
+            <span class="mono">Brake</span>
+            <strong>Carbon ceramic brakes</strong>
+          </div>
+          <div class="tech-callout callout-cooling">
+            <span class="mono">Cooling</span>
+            <strong>Active front cooling</strong>
+          </div>
         </figure>
         <div class="engineering-copy">
-          <p class="eyebrow mono">Contact patch system</p>
+          <p class="eyebrow mono accent-label">Contact patch system</p>
           <h2>Grip, cooling and control.</h2>
           <p>The close-up system translates performance into physical detail: tire contact, brake cooling, wheel structure and low-drag airflow.</p>
           <div class="micro-specs">
@@ -163,6 +195,10 @@
               <strong>Active front cooling</strong>
             </article>
           </div>
+          <div class="status-row">
+            <span class="mono">System ready</span>
+            <span class="mono">Thermal loop active</span>
+          </div>
         </div>
       </div>
     </section>
@@ -171,7 +207,7 @@
       <div class="section-label mono">04 / Powertrain</div>
       <div class="powertrain-grid">
         <div class="powertrain-copy">
-          <p class="eyebrow mono">Torque vectoring platform</p>
+          <p class="eyebrow mono accent-label">Torque vectoring platform</p>
           <h2>Silent force, split instantly.</h2>
           <p>Dual electric motors distribute torque independently across the axles for traction, stability and immediate throttle response.</p>
         </div>
@@ -197,8 +233,50 @@
       </div>
     </section>
 
+    <section class="section modes">
+      <div class="section-label mono">05 / Driving Modes</div>
+      <div class="modes-heading">
+        <h2>Four ways to control silence.</h2>
+        <p>Each mode changes throttle mapping, torque delivery, cooling strategy and interface density.</p>
+      </div>
+      <div class="mode-grid">
+        <article class="mode-card is-active">
+          <span class="mono">01 / System ready</span>
+          <h3>Silent</h3>
+          <p>Soft pedal response, low cabin brightness and near-invisible interface feedback.</p>
+          <small class="mono">Acoustic floor: 24 dB</small>
+        </article>
+        <article class="mode-card">
+          <span class="mono">02 / Dual motor online</span>
+          <h3>Dynamic</h3>
+          <p>Sharper motor response with balanced torque and active road calibration.</p>
+          <small class="mono">Torque split: adaptive</small>
+        </article>
+        <article class="mode-card">
+          <span class="mono">03 / Track logic armed</span>
+          <h3>Track</h3>
+          <p>Maximum cooling, rear-biased torque and persistent performance telemetry.</p>
+          <small class="mono">Cooling: maximum</small>
+        </article>
+        <article class="mode-card">
+          <span class="mono">04 / Battery floor active</span>
+          <h3>Range</h3>
+          <p>Energy-led throttle smoothing, reduced drag demand and extended route logic.</p>
+          <small class="mono">Recovery: optimized</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="motion-breaker" aria-label="NOVA GT motion study">
+      <img src="assets/nova-motion-coast.png" alt="NOVA GT in motion on a coastal road" loading="lazy">
+      <div class="motion-breaker-copy">
+        <span class="mono">Motion study / Coastal road</span>
+        <h2>Designed for controlled speed.</h2>
+      </div>
+    </section>
+
     <section class="section interior">
-      <div class="section-label mono">05 / Interior</div>
+      <div class="section-label mono">06 / Interior</div>
       <div class="interior-panel">
         <div>
           <p class="eyebrow mono">Digital restraint</p>
@@ -209,36 +287,6 @@
           <img src="assets/nova-cockpit.png" alt="NOVA GT minimalist cockpit concept" />
           <figcaption class="mono">Cockpit / Control room</figcaption>
         </figure>
-      </div>
-    </section>
-
-    <section class="section modes">
-      <div class="section-label mono">06 / Driving Modes</div>
-      <div class="modes-heading">
-        <h2>Four ways to control silence.</h2>
-        <p>Each mode changes throttle mapping, torque delivery, cooling strategy and interface density.</p>
-      </div>
-      <div class="mode-grid">
-        <article>
-          <span class="mono">01</span>
-          <h3>Silent</h3>
-          <p>Soft pedal response, low cabin brightness and near-invisible interface feedback.</p>
-        </article>
-        <article>
-          <span class="mono">02</span>
-          <h3>Dynamic</h3>
-          <p>Sharper motor response with balanced torque and active road calibration.</p>
-        </article>
-        <article>
-          <span class="mono">03</span>
-          <h3>Track</h3>
-          <p>Maximum cooling, rear-biased torque and persistent performance telemetry.</p>
-        </article>
-        <article>
-          <span class="mono">04</span>
-          <h3>Range</h3>
-          <p>Energy-led throttle smoothing, reduced drag demand and extended route logic.</p>
-        </article>
       </div>
     </section>
 
