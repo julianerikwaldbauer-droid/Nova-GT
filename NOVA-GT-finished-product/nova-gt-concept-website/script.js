@@ -161,6 +161,23 @@ const revealItems = document.querySelectorAll([
 
 revealItems.forEach((item) => item.classList.add("reveal"));
 
+document.querySelectorAll(".mode-card").forEach((card) => {
+  const activateCard = () => {
+    card.parentElement?.querySelectorAll(".mode-card").forEach((item) => {
+      item.classList.toggle("is-active", item === card);
+    });
+  };
+
+  card.addEventListener("mouseenter", activateCard);
+  card.addEventListener("focusin", activateCard);
+  card.addEventListener("click", activateCard);
+});
+
+document.querySelectorAll(".gallery img, .marquee-gallery img").forEach((image) => {
+  image.draggable = false;
+  image.addEventListener("dragstart", (event) => event.preventDefault());
+});
+
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
