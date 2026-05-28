@@ -33,6 +33,7 @@ if (cursor && window.matchMedia("(pointer: fine)").matches && !prefersReducedMot
     ".hero-stats article",
     ".stat-grid article",
     ".design-notes article",
+    ".design-tech-card",
     ".micro-specs article",
     ".mode-grid article",
     ".motion-breaker"
@@ -139,6 +140,7 @@ const revealItems = document.querySelectorAll([
   ".section-heading",
   ".design-copy",
   ".design-notes article",
+  ".design-tech-card",
   ".large-image",
   ".engineering-heading",
   ".detail-image",
