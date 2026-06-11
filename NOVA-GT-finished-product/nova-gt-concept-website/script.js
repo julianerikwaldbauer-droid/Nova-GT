@@ -1,50 +1,5 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const cursor = document.querySelector(".cursor");
-
-if (cursor && window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion) {
-  let targetX = window.innerWidth / 2;
-  let targetY = window.innerHeight / 2;
-  let currentX = targetX;
-  let currentY = targetY;
-
-  window.addEventListener("mousemove", (event) => {
-    targetX = event.clientX;
-    targetY = event.clientY;
-    cursor.classList.add("is-visible");
-  });
-
-  const moveCursor = () => {
-    currentX += (targetX - currentX) * 0.2;
-    currentY += (targetY - currentY) * 0.2;
-    cursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
-    requestAnimationFrame(moveCursor);
-  };
-
-  moveCursor();
-
-  const hoverTargets = [
-    "a",
-    "button",
-    "input",
-    "select",
-    "textarea",
-    ".image-card",
-    ".hero-stats article",
-    ".stat-grid article",
-    ".design-notes article",
-    ".design-tech-card",
-    ".micro-specs article",
-    ".mode-grid article",
-    ".motion-breaker"
-  ].join(",");
-
-  document.querySelectorAll(hoverTargets).forEach((element) => {
-    element.addEventListener("mouseenter", () => cursor.classList.add("is-hover"));
-    element.addEventListener("mouseleave", () => cursor.classList.remove("is-hover"));
-  });
-}
-
 document.querySelectorAll("[data-scroll]").forEach((link) => {
   link.addEventListener("click", (event) => {
     const id = link.getAttribute("href");
